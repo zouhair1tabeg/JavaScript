@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="d1">
+        <table>
+            <tr>
+                <td>
+                    Client:
+                    <input type="text" id="client">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Voiture:
+                    <select id="voiture">
+                        <optgroup label="Choisir votre voiture">
+                        <option value="Honda Civic">Honda Civic</option>
+                        <option value="Renault megane">Renault megane</option>
+                        <option value="Ford Focus">Ford Focus</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Nombre de jours:
+                    <input type="text" id="nj">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Client Fidele:
+                    <input type="checkbox" id="check">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="calcule()">Prix</button>
+                    <button onclick="clear_lc()">Clear</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Clent:
+                    <label id="nclient">--</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Prix:
+                    <label id="prix">--</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="js/script10.js"></script>
+</body>
+</html>

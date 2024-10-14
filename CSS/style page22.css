@@ -1,0 +1,17 @@
+.product{
+    margin-bottom: 20px;
+}
+
+.removeBtn{
+    border-radius: 10px;
+    background-color: lightskyblue;
+    color: white;
+    border: white;
+}
+
+#AddBtn{
+    border-radius: 10px;
+    border: white;
+    background-color: cadetblue;
+    color: aliceblue;
+}

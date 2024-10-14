@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Information</title>
+    <style>
+        h1 {
+            color: white;
+            text-align: center;
+        }
+        p {
+            font-family: verdana;
+            font-size: 20px;
+        }
+        table {
+            width: 100%;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        #car-info{
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><input type="radio" name="car" id="car1">Toyota Corolla</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="car" id="car2">Honda Civic</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="car" id="car3">Ford Mustang</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="car" id="car4">BMW X</td>
+        </tr>
+    </table>
+
+    <div id="car-info">
+        <!-- Car info will be displayed here -->
+    </div>
+
+    <script>
+        // Function to create car information HTML
+        function createCarInfo(carData) {
+            return `
+                <div>
+                    <img src="${carData.image}" alt="${carData.name}" width="200">
+                    <p>Price: ${carData.price}</p>
+                    <p>Year: ${carData.year}</p>
+                </div>
+            `;
+        }
+
+        // Function to fetch car data and update the UI
+        function fetchAndUpdateCarInfo(carId) {
+            fetch('https://mocki.io/v1/57902311-41e0-42f1-8782-560bf641c9bf')
+                .then(response => response.json())
+                .then(data => {
+                    const carInfoDiv = document.getElementById('car-info');
+                    carInfoDiv.innerHTML = createCarInfo(data[carId]);
+                })
+                .catch(error => {
+                    console.error('Error fetching car data:', error);
+                });
+        }
+
+        // Add click event listeners to radio buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('car1').addEventListener('click', function() { fetchAndUpdateCarInfo(0); });
+            document.getElementById('car2').addEventListener('click', function() { fetchAndUpdateCarInfo(1); });
+            document.getElementById('car3').addEventListener('click', function() { fetchAndUpdateCarInfo(2); });
+            document.getElementById('car4').addEventListener('click', function() { fetchAndUpdateCarInfo(3); });
+        });
+    </script>
+</body>
+</html>

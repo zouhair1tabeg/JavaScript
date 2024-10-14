@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #productTable table {
+            border: 1px solid black;
+        }
+
+        #productTable tr, #productTable td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        #productTable th {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <table>
+            <tr>
+                <td>
+                    <h2>Ajouter un produit</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" id="prd_name" placeholder="Nom du produit">
+                </td>
+            </tr>
+            <tr>
+                <td><input type="number" id="prix" placeholder="Prix"></td>
+            </tr>
+            <tr>
+                <td><input type="url" id="img_url" placeholder="URL"></td>
+            </tr>
+            <tr>
+                <td><button id="AddBtn">Ajouter</button></td>
+            </tr>
+        </table>
+        <table  border="1px solid black" id="productTable">
+            <thead>
+                <tr>
+                    <th>Nom du Produit</th>
+                    <th>Prix</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="js/script24.js"></script>
+</body>
+</html>

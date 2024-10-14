@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style page8.css">
+</head>
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <td>
+                    Nom et prenom:
+                    <input type="text" id="client" placeholder="nom et prenom">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="radio" name="q" id="i3">i3
+                    <input type="radio" name="q" id="i5">i5
+                    <input type="radio" name="q" id="i7">i7
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Generation:
+                    <input type="text" id="gn">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Client fidele:
+                    <input type="checkbox" id="check">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button onclick="calcule()">Calculer</button>
+                    <button onclick="clear_form()">Clear</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Client :
+                    <label id="lbcli">--</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Prix :
+                    <label id="lbprix">--</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <script src="js/script8.js"></script>
+</body>
+</html>

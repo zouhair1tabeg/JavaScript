@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Poids:</td>
+            <td><input type="text" id="in"></td>
+        </tr>
+        <tr>
+            <td>Taille:</td>
+            <td><input type="text" id="ih"></td>
+        </tr>
+        <tr>
+            <td>Unite:</td>
+            <td>
+                <input type="radio" id="r-m" name="a">m
+                <input type="radio" id="r-cm" name="a">cm
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <td><input type="button" value="IMC" onclick="calcule()"></td>
+            </td>
+        </tr>
+        <tr>
+            <td>Resultst:</td>
+            <td><label id="lbh">0</label></td>
+        </tr>
+        <tr>
+            <td>Interpretation:</td>
+            <td><label id="lbn">--</label></td>
+        </tr>
+        <tr>
+            <td>
+            <td><input type="button" value="Clear" onclick="clear_imc()"></td>
+            </td>
+        </tr>
+    </table>
+
+    <script src="js/script2.js"></script>
+</body>
+</html>

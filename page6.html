@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style page6.css">
+</head>
+<body>
+    <div class="d1">
+        <table>
+            <tr>
+                <td>
+                    Distance:
+                    <input type="text" id="inp">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Type de Taxi:
+                    <input type="radio" name="q" id="normal">Normal(3 personnes)
+                    <input type="radio" name="q" id="familial">familial(5 personnes)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="calcule()">Calculer</button>
+                    <button onclick="clear_prix()">Clear</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Prix:
+                    <label id="prix"></label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="js/script6.js"></script>
+</body>
+</html>

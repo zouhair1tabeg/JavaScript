@@ -1,0 +1,23 @@
+.d1{
+    background-color: rgb(111, 192, 242);
+    width: 570px;
+    height: 500px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.d1 td{
+    padding: 20px;
+}
+
+.d1 button{
+    background-color: aqua;
+    border-radius: 10px;
+    color: blue;
+}
+.d1 button:hover{
+    background-color: aquamarine;
+    color: black;
+}
+.d1 table{
+    position: fixed;
+}

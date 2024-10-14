@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style page5.css">
+</head>
+<body>
+    <div class="d1">
+        <table>
+            <tr>
+                <td>
+                    puissance:
+                    <input type="text" id="hp">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Carburant:
+                    <input type="radio" name="i" id="ess">Essence
+                    <input type="radio" name="i" id="dis">Diesel
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="calcule_tav()">Calculer</button>
+                    <button onclick="clear_tav()">Clear</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    TAV:
+                    <label id="tav">--</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="js/script5.js"></script>
+</body>
+</html>

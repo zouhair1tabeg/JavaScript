@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #n1{
+            border: 1px solid black;
+            text-align: center;
+            border-radius: 10px;
+            background:  linear-gradient(
+      to right,
+      #6253e1,
+      #852d91,
+      #a3a1ff,
+      #f24645
+    );
+        }
+        table{
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        thead {
+            background-image: linear-gradient(
+      to right,
+      #6253e1,
+      #852d91,
+      #a3a1ff,
+      #f24645
+    );
+            color: white;
+        }
+        #prix{
+            color: green;
+        }
+        h1 , h4{
+            color: white;
+        }
+
+        #AddBtn {
+  width: 160px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+#AddBtn:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+#AddBtn:focus {
+  outline: none;
+}
+
+#AddBtn.bn24 {
+  background-image: linear-gradient(
+      to right,
+      #6253e1,
+      #852d91,
+      #a3a1ff,
+      #f24645
+    );
+  box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
+    </style>
+    <div id="n1" class="c1">
+        <h2>Commander Les TVs</h2>
+        <h4>Tv:</h4>
+        <select id="selopt">
+            <option value="1">--Choose TV--</option>
+        </select>
+        <h4>Quantite:</h4>
+        <input type="text" id="qt">
+        <br>
+        <button id="AddBtn" class="bn24">Ajouter au panier</button>
+        <table border="" id="tbl">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Quantite</th>
+                    <th>Prix unitaire</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <br>
+
+        <div id="price">Prix Total HT: 0 Dh</div>
+    </div>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var dataTV;
+
+            $.ajax({
+                url: 'https://mocki.io/v1/1a6f30a8-fa3c-4614-9e09-6d828c7942b8',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data){
+                    dataTV = data;
+                    var TV_slct = $("#selopt");
+                    $.each(dataTV, function(i, tv) {
+                        var option_slct = $("<option></option>").attr('value', tv.id).text(tv.nom);
+                        TV_slct.append(option_slct);
+                    });
+                }
+            });
+
+
+            $("#AddBtn").click(function() {
+                var Quantite = parseInt($("#qt").val());
+                var slctTV = $("#selopt").val();
+                var prixlb = $("#price");
+                var prxto = parseFloat(prixlb.text().replace("Prix Total HT: ", "").replace(" Dh", ""));
+
+                if (!isNaN(Quantite) && Quantite > 0 && slctTV) {
+                    var selectedTV = dataTV.find(function(television) {
+                        return television.id == slctTV;
+                    });
+
+                    if (selectedTV) {
+                        $("#tbl").css('visibility','visible');
+                        var saleTable = $('#tbl tbody');
+                        var trprix = parseFloat(selectedTV.prix);
+                        var totaltrprix = Quantite * trprix;
+                        saleTable.append($('<tr>')
+                            .append($('<td>').text(selectedTV.nom))
+                            .append($('<td>').text(Quantite))
+                            .append($('<td>').text(trprix + " Dh"))
+                            .append($('<td>').append($('<img>').attr('src', selectedTV.image).css('width', '100px')))
+                            .append($('<td>').append($('<button>').text("Supprimer").addClass("supprimer-action").data('price', totaltrprix)))
+                        );
+
+                        prxto += totaltrprix;
+                        prixlb.text("Prix Total HT: " + prxto.toFixed(2) + " Dh");
+                    }
+                } else {
+                    alert("Please select a television and enter a valid Quantite.");
+                }
+            });
+
+            $("#tbl").on('click', '.supprimer-action', function() {
+                var prixsupr = $(this).data('price');
+                var prixlb = $("#price");
+                var prxto = parseFloat(prixlb.text().replace("Prix Total HT: ", "").replace(" Dh", ""));
+                prxto -= prixsupr;
+                prixlb.text("Prix Total HT: " + prxto.toFixed(2) + " Dh");
+                $(this).closest('tr').remove();
+            });
+        });
+    </script>
+</body>
+</html>

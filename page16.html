@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 16</title>
+    <link rel="stylesheet" href="CSS/style page16.css">
+</head>
+<body>
+    <div class="d1">
+        <table>
+            <tr>
+                <td>Nom:</td>
+                <td><input type="text" id="nom"></td>
+                <td>
+                    <label style="visibility: hidden; color: red;" id="label1">Obligatoire</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Prenom:</td>
+                <td><input type="text" id="prenom"></td>
+                <td>
+                    <label style="visibility: hidden; color: red;" id="label2">Obligatoire</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" id="email"></td>
+                <td>
+                    <label style="visibility: hidden; color: red;" id="label3">Obligatoire</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Niveau d'etudes:</td>
+                <td>
+                    <select id="opt">
+                        <option value="">please choose</option>
+                        <option value="Bac">Bac</option>
+                        <option value="Bac +2">Bac +2</option>
+                        <option value="Bac +3">Bac +3</option>
+                    </select>
+                </td>
+                <td>
+                    <label style="visibility: hidden; color: red;" id="label4">Obligatoire</label>
+                </td>
+            </tr>
+            <tr>
+                <td><button id="btn1">Envoyer</button></td>
+                <td><button id="btn2">Clear</button></td>
+            </tr>
+
+            
+            <tr>
+                <td><label id="rnom"></label></td>
+            </tr>
+            </tr>
+            <tr>
+                <td><label id="rprenom"></label></td>
+            </tr>
+            </tr>
+            <tr>
+                <td><label id="remail"></label></td>
+            </tr>
+            </tr>
+            <tr>
+                <td><label id="rnv"></label></td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="js/script16.js"></script>
+</body>
+</html>

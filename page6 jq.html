@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Distance:</td>
+            <td><input type="text" id="inp" placeholder="Enter distance in km"></td>
+        </tr>
+        <tr>
+            <td>Type de Taxi:</td>
+            <td>
+                <label for="normal">Normal(3 personnes)</label>
+                <input type="radio" name="type" id="normal" checked>
+                <label for="express">Familial(5 personnes)</label>
+                <input type="radio" name="type" id="express">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button id="calculateBtn">Calculate</button>
+                <button id="clearBtn">Clear</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Prix:</td>
+            <td><div id="prix">--</div></td>
+        </tr>
+    </table>
+
+    <script src="js/script6 jq.js"></script>
+</body>
+</html>

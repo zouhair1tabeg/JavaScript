@@ -1,0 +1,29 @@
+#boutton1{
+    background-color: aquamarine;
+}
+#boutton2{
+    background-color: orange;
+}
+#boutton3{
+    background-color: blueviolet;
+}
+#boutton4{
+    background-color: lightskyblue;
+}
+#boutton5{
+    background-color: yellow;
+}
+#boutton6{
+    background-color: green;
+}
+#boutton7{
+    background-color: brown;
+}
+
+#d1{
+    height: 100px;
+    width: 100px;
+    top: 40px;
+    left: 50px;
+    position: relative;
+}

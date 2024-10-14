@@ -1,0 +1,23 @@
+.d1 {
+
+    position: relative;
+    top: 50px;
+    left: 100px;
+    background-color: rgba(16, 216, 166, 0.065);
+    width: 488px;
+    height: 500px;
+    border-radius: 10px;
+    border: 2px solid;
+}
+.d1 td {
+    padding: 20px;
+}
+
+.d1:hover {
+    background-color: rgba(110, 169, 220, 0.891);
+}
+
+.d1 label{
+    position: relative;
+    top: 70px;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <button id="btnd">Afficher les détails</button>
+   
+    <table id="table">
+        <thead>
+            
+        </thead>
+    </table>
+    <div id="dv"></div>
+    
+    <input type="text" id="quantity" placeholder="Quantity">
+    <button id="sell">Sell</button>
+    
+    <table id="saleTable" class="table table-light" style="visibility: hidden;">
+        <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Mark</th>
+                <th scope="col">Model</th>
+                <th scope="col">Year</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var carsData; 
+
+            $("#btnd").click(function (){ 
+                $.ajax({
+                    url: 'https://mocki.io/v1/57902311-41e0-42f1-8782-560bf641c9bf',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        carsData = data;
+                        var carSelect = $('#table');
+                        carSelect.empty(); 
+
+                        for (var i = 0; i < carsData.length; i++) {
+                            var car = carsData[i];
+                            var option = $('<input name="car" type="radio" value="' + car.id + '">');
+                            var label = $('<label></label>').text(car.make + ' ' + car.model);
+                            carSelect.append($('<tr>').append($('<td>').append(option, label)));
+                        }
+                    }
+                });
+            });
+
+           
+            $(document).on('click', 'input[name="car"]', function() {
+                var selectedCarId = $(this).val();
+                var selectedCar = carsData.find(function(car) {
+                    return car.id == selectedCarId;
+                });
+
+                if (selectedCar) {
+                    var detailsDiv = $('#dv');
+                    detailsDiv.empty();
+                    detailsDiv.append($('<img>').attr('src', selectedCar.image).css('width', '200px'));
+                    detailsDiv.append($('<p>').text('Price: ' + selectedCar.price+" $"));
+                    detailsDiv.append($('<p>').text('Year: ' + selectedCar.year));
+                }
+            });
+
+           
+            $("#sell").click(function() {
+                var quantity = parseInt($("#quantity").val()); 
+                var selectedCarId = $("input[name='car']:checked").val(); 
+                if (!isNaN(quantity) && quantity > 0 && selectedCarId) {
+                   
+                    var selectedCar = carsData.find(function(car) {
+                        return car.id == selectedCarId;
+                    });
+
+                    if (selectedCar) {
+                        
+                        var totalPrice = quantity * parseFloat(selectedCar.price);
+                        
+                       
+                        $("#saleTable").css('visibility','visible');
+                        var saleTable = $('#saleTable tbody');
+                        saleTable.append($('<tr>')
+                            .append($('<td>').append($('<img>').attr('src', selectedCar.image).css('width', '100px')))
+                            .append($('<td>').text(selectedCar.make))
+                            .append($('<td>').text(selectedCar.model))
+                            .append($('<td>').text(selectedCar.year))
+                            .append($('<td>').text(selectedCar.price+" $"))
+                            .append($('<td>').text(totalPrice.toFixed(2)+" $"))
+                        );
+                    }
+                } else {
+                    alert("Please select a car and enter a valid quantity.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

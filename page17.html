@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="d1">
+        <table>
+            <tr>
+                <td>Nom:</td>
+                <td><input type="text" id="nom"></td>
+                <td><label style="visibility: hidden; color: red;" id="ob1">Obligatoire</label></td>
+            </tr>
+            <tr>
+                <td>Preom:</td>
+                <td><input type="text" id="prenom"></td>
+                <td><label style="visibility: hidden; color: red;" id="ob2">Obligatoire</label></td>
+            </tr>
+            <tr>
+                <td>CIN:</td>
+                <td><input type="text" id="cin"></td>
+                <td><label style="visibility: hidden; color: red;" id="ob3">Obligatoire</label></td>
+            </tr>
+            <tr>
+                <td>Lap Top:</td>
+                <td>
+                    <select id="opt">
+                        <option value="">--please choose--</option>
+                        <option value="hp Elitebook">hp Elitebook</option>
+                        <option value="MacBook Air 2024">MacBook Air 2024</option>
+                        <option value="Lenovo thinkpad">Lenovo thinkpad</option>
+                    </select>
+                </td>
+                <td><label style="visibility: hidden; color: red;" id="ob4">Obligatoire</label></td>
+            </tr>
+            <tr>
+                <td>Livraison:</td>
+                <td><input type="checkbox" id="check"></td>
+            </tr>
+            <tr>
+                <td><button id="envoyer">Envoyer</button></td>
+                <td><button id="clear">Clear</button></td>
+            </tr>
+
+            
+            <tr>
+                <td><label id="rnom"></label></td>
+            </tr>
+            </tr>
+            <tr>
+                <td><label id="rprenom"></label></td>
+            </tr>
+            </tr>
+            <tr>
+                <td><label id="rcin"></label></td>
+            </tr>
+            </tr>
+            <tr>
+                <td><label id="rpc"></label></td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="js/script17.js"></script>
+</body>
+</html>

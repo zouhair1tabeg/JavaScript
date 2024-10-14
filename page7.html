@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style page7.css">
+</head>
+<body>
+    <div class="d1">
+        <h1>Billet D'Avion</h1>
+        <table>
+            <tr>
+                <td>
+                    Nom:
+                </td>
+                <td>
+                    <input type="text" id="nom">
+                </td>
+            </tr>
+            <tr>
+                <td>Prenom:</td>
+                <td>
+                    <input type="text" id="prenom">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Destination:
+                </td>
+                <td>
+                    <input type="text" id="dest">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    class:
+                </td>
+                <td>
+                    <input type="radio" name="cl" id="first">First
+                    <input type="radio" name="cl" id="standar">Standar
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="calcule()">Calculer</button>
+                    <button onclick="clear_form()">Clear</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Client:
+                    <label id="client">--</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Prix:
+                    <label id="prix">--</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="js/script7.js"></script>
+</body>
+</html>

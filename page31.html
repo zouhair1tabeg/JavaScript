@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #d1{
+            border: 1px solid black;
+            text-align: center;
+            border-radius: 10px;
+            background-image: linear-gradient(
+    to right,
+    #25aae1,
+    #40e495,
+    #30dd8a,
+    #2bb673
+  );
+        }
+        table{
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        thead {
+            background-image: linear-gradient(
+            to right,
+            #25aae1,
+            #4481eb,
+            #04befe,
+            #3f86ed
+        );;
+            color: white;
+        }
+        #btn {
+            width: 160px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            margin: 20px;
+            height: 55px;
+            text-align:center;
+            border: none;
+            background-size: 300% 100%;
+            border-radius: 50px;
+            moz-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+            }
+
+        #btn:hover {
+        background-position: 100% 0;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+        }
+
+        #btn:focus {
+        outline: none;
+        }
+
+        #btn.bn26 {
+        background-image: linear-gradient(
+            to right,
+            #25aae1,
+            #4481eb,
+            #04befe,
+            #3f86ed
+        );
+        box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+        }
+
+        #prix{
+            color: green;
+        }
+        h1 , h4{
+            color: white;
+        }
+        input , select{
+            background-color: #30dd8a;
+            color: white;
+            border-radius: 10px;
+            border: 1px white solid;
+        }
+        #table .supprimer-action {
+  width: 160px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    #ed6ea0,
+    #ec8c69,
+    #f7186a,
+    #fbb03b
+  );
+  box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+
+#table .supprimer-action:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+    </style>
+    <div id="d1">
+        <h1>Commander Les TVs</h1>
+        <h4>Tv:</h4>
+        <select id="opt">
+            <option value="opt1">--Choose TV--</option>
+        </select>
+
+        <h4>Quantite:</h4>
+        <input type="text" id="qt">
+        <br>
+        <br>
+        <button id="btn" class="bn26 ">Ajouter au panier</button>
+
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Quantite</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <br>
+
+        <div id="prix">Prix Total HT: 0 Dh</div>
+    </div>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var TV_dt;
+
+            $.ajax({
+                url: 'https://mocki.io/v1/1a6f30a8-fa3c-4614-9e09-6d828c7942b8',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data){
+                    TV_dt = data;
+                    var select_tvs = $("#opt");
+                    $.each(TV_dt, function(i, tv) {
+                        var option = $("<option></option>").attr('value', tv.id).text(tv.nom);
+                        select_tvs.append(option);
+                    });
+                }
+            });
+
+
+            $("#btn").click(function() {
+                var quantity = parseInt($("#qt").val());
+                var selectedTelevisionId = $("#opt").val();
+                var prix = $("#prix");
+                var prix_total = parseFloat(prix.text().replace("Prix Total HT: ", "").replace(" Dh", ""));
+
+                if (!isNaN(quantity) && quantity > 0 && selectedTelevisionId) {
+                    var selectedTelevision = TV_dt.find(function(television) {
+                        return television.id == selectedTelevisionId;
+                    });
+
+                    if (selectedTelevision) {
+                        $("#table").css('visibility','visible');
+                        var saleTable = $('#table tbody');
+                        var r_prix = parseFloat(selectedTelevision.prix);
+                        var prix_lbl = quantity * r_prix;
+                        saleTable.append($('<tr>')
+                            .append($('<td>').text(selectedTelevision.nom))
+                            .append($('<td>').text(quantity))
+                            .append($('<td>').append($('<img>').attr('src', selectedTelevision.image).css('width', '100px')))
+                            .append($('<td>').append($('<button>').text("Supprimer").addClass("supprimer-action").data('prix', prix_lbl)))
+                        );
+
+                        prix_total += prix_lbl;
+                        prix.text("Prix Total HT: " + prix_total.toFixed(2) + " Dh");
+                    }
+                } else {
+                    alert("Please select a television and enter a valid quantity.");
+                }
+            });
+
+            $("#table").on('click', '.supprimer-action', function() {
+                var prix_supprimer = $(this).data('prix');
+                var prix = $("#prix");
+                var prix_total = parseFloat(prix.text().replace("Prix Total HT: ", "").replace(" Dh", ""));
+                prix_total -= prix_supprimer;
+                prix.text("Prix Total HT: " + prix_total.toFixed(2) + " Dh");
+                $(this).closest('tr').remove();
+            });
+        });
+    </script>
+</body>
+</html>

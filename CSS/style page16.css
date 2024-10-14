@@ -1,0 +1,27 @@
+.d1{
+    background-color: aquamarine;
+    width: 400px;
+    height: 250px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    border: solid 1px ;
+    border-radius: 20px;
+}
+
+.d1 table{
+    position: fixed;
+    left: 30px;
+}
+.d1 button{
+    background-color: rgb(130, 228, 55);
+    border-radius: 10px;
+    color: aliceblue;
+}
+.d1 button:hover{
+    background-color: chartreuse;
+    color: blue;
+}
+.d1:hover{
+    background-color: darkturquoise;
+}

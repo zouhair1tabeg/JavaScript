@@ -1,0 +1,28 @@
+.c1 {
+
+    position: relative;
+    top: 50px;
+    left: 100px;
+    background-color: rgb(224, 183, 99);
+    width: 350px;
+    height: 500px;
+    border-radius: 10px;
+    
+}
+
+.c1 td {
+    padding: 20px;
+}
+
+.s1 {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(52, 129, 88);
+    color: aliceblue;
+    width: 80px;
+    border: 1px;
+}
+
+.s1:hover {
+    background-color: rgb(110, 166, 94);
+}

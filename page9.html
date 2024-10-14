@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="d1">
+        <table>
+            <tr>
+                <td>
+                    Smartphone:
+                    <select id="opt">
+                        <optgroup label="Chose Phone">
+                          <option>Chose Phone</option>
+                          <option>Pixel 4</option>
+                          <option>Pixel 5</option>
+                          <option>Pixel 7</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Variante:
+                    <input type="radio" name="w" id="standar">Standar
+                    <input type="radio" name="w" id="mini">Mini
+                    <input type="radio" name="w" id="pro">Pro
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="calcule()">Prix</button>
+                    <button onclick="clear_ph()">Clear</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Prix:
+                    <label id="prix">--</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="js/script9.js"></script>
+</body>
+</html>
